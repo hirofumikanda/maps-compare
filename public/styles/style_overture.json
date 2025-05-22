@@ -1,0 +1,309 @@
+{
+  "version": 8,
+  "glyphs": "https://demotiles.maplibre.org/font/{fontstack}/{range}.pbf",
+  "sources": {
+    "white": {
+      "type": "raster",
+      "tiles": ["https://cyberjapandata.gsi.go.jp/xyz/blank/{z}/{x}/{y}.png"],
+      "tileSize": 256,
+      "maxzoom": 14,
+      "minzoom": 5,
+      "attribution": "<a href='https://maps.gsi.go.jp/development/ichiran.html' target='_blank'>地理院タイル</a>"
+    },
+    "places": {
+      "type": "vector",
+      "url": "pmtiles://https://hirofumikanda.github.io/overture_maps/data/jpn_tokyo_places.pmtiles",
+      "maxzoom": 16,
+      "minzoom": 8,
+      "attribution": "© OpenStreetMap contributors, Overture Maps Foundation"
+    },
+    "buildings": {
+      "type": "vector",
+      "url": "pmtiles://https://hirofumikanda.github.io/overture_maps/data/jpn_tokyo_buildings.pmtiles",
+      "maxzoom": 16,
+      "minzoom": 9,
+      "attribution": "© OpenStreetMap contributors, Overture Maps Foundation"
+    },
+    "division_boundary": {
+      "type": "vector",
+      "url": "pmtiles://https://hirofumikanda.github.io/overture_maps/data/jpn_tokyo_division_boundary.pmtiles",
+      "maxzoom": 16,
+      "minzoom": 0,
+      "attribution": "© OpenStreetMap contributors, Overture Maps Foundation"
+    },
+    "division_area": {
+      "type": "vector",
+      "url": "pmtiles://https://hirofumikanda.github.io/overture_maps/data/jpn_tokyo_division_area.pmtiles",
+      "maxzoom": 16,
+      "minzoom": 0,
+      "attribution": "© OpenStreetMap contributors, Overture Maps Foundation"
+    },
+    "infrastructure": {
+      "type": "vector",
+      "url": "pmtiles://https://hirofumikanda.github.io/overture_maps/data/jpn_tokyo_infrastructure.pmtiles",
+      "maxzoom": 16,
+      "minzoom": 9,
+      "attribution": "© OpenStreetMap contributors, Overture Maps Foundation"
+    },
+    "land": {
+      "type": "vector",
+      "url": "pmtiles://https://hirofumikanda.github.io/overture_maps/data/jpn_tokyo_land.pmtiles",
+      "maxzoom": 16,
+      "minzoom": 0,
+      "attribution": "© OpenStreetMap contributors, Overture Maps Foundation"
+    },
+    "land_cover": {
+      "type": "vector",
+      "url": "pmtiles://https://hirofumikanda.github.io/overture_maps/data/jpn_tokyo_land_cover.pmtiles",
+      "maxzoom": 16,
+      "minzoom": 9,
+      "attribution": "© OpenStreetMap contributors, Overture Maps Foundation"
+    },
+    "land_use": {
+      "type": "vector",
+      "url": "pmtiles://https://hirofumikanda.github.io/overture_maps/data/jpn_tokyo_land_use.pmtiles",
+      "maxzoom": 16,
+      "minzoom": 9,
+      "attribution": "© OpenStreetMap contributors, Overture Maps Foundation"
+    },
+    "water": {
+      "type": "vector",
+      "url": "pmtiles://https://hirofumikanda.github.io/overture_maps/data/jpn_tokyo_water.pmtiles",
+      "maxzoom": 16,
+      "minzoom": 3,
+      "attribution": "© OpenStreetMap contributors, Overture Maps Foundation"
+    },
+    "transportation": {
+      "type": "vector",
+      "url": "pmtiles://https://hirofumikanda.github.io/overture_maps/data/jpn_tokyo_transportation.pmtiles",
+      "maxzoom": 13,
+      "minzoom": 9,
+      "attribution": "© OpenStreetMap contributors, Overture Maps Foundation"
+    }
+  },
+  "layers": [
+    {
+      "id": "division-area",
+      "type": "fill",
+      "source": "division_area",
+      "source-layer": "division_area",
+      "paint": {
+        "fill-outline-color": "rgb(250, 173, 191)",
+        "fill-color": "rgb(251, 248, 243)"
+      },
+      "minzoom": 1
+    },
+    {
+      "id": "land_cover",
+      "type": "fill",
+      "source": "land_cover",
+      "source-layer": "land_cover",
+      "filter": ["!=", ["get", "subtype"], "urban"],
+      "paint": {
+        "fill-color": [
+          "match",
+          ["get", "subtype"],
+          "barren",
+          "#e0e0e0",
+          "crop",
+          "#f2e394",
+          "forest",
+          "#228B22",
+          "grass",
+          "#7CFC00",
+          "mangrove",
+          "#2E8B57",
+          "moss",
+          "#98FB98",
+          "shrub",
+          "#9acd32",
+          "snow",
+          "#ffffff",
+          "wetland",
+          "#add8e6",
+          "#cccccc"
+        ],
+        "fill-opacity": 0.6
+      }
+    },
+    {
+      "id": "land_use",
+      "type": "fill",
+      "source": "land_use",
+      "source-layer": "land_use",
+      "paint": {
+        "fill-color": [
+          "match",
+          ["get", "subtype"],
+          "agriculture",
+          "#f0e68c",
+          "aquaculture",
+          "#b0e0e6",
+          "campground",
+          "#deb887",
+          "cemetery",
+          "#a9a9a9",
+          "construction",
+          "#ffcc00",
+          "developed",
+          "#c0c0c0",
+          "education",
+          "#ffb6c1",
+          "entertainment",
+          "#dda0dd",
+          "golf",
+          "#98fb98",
+          "grass",
+          "#90ee90",
+          "horticulture",
+          "#f5deb3",
+          "landfill",
+          "#8b4513",
+          "managed",
+          "#eee8aa",
+          "medical",
+          "#f08080",
+          "military",
+          "#708090",
+          "park",
+          "#32cd32",
+          "pedestrian",
+          "#dcdcdc",
+          "protected",
+          "#006400",
+          "recreation",
+          "#afeeee",
+          "religious",
+          "#ffe4e1",
+          "residential",
+          "#d3d3d3",
+          "resource_extraction",
+          "#cd853f",
+          "transportation",
+          "#ffa500",
+          "winter_sports",
+          "#e0ffff",
+          "#cccccc"
+        ],
+        "fill-opacity": 0.5
+      }
+    },
+    {
+      "id": "water-line",
+      "type": "line",
+      "source": "water",
+      "source-layer": "water",
+      "filter": ["==", "$type", "LineString"],
+      "paint": {
+        "line-color": "rgb(148, 196, 212)",
+        "line-width": ["interpolate", ["linear"], ["zoom"], 6, 0.5, 10, 1.5, 14, 3, 18, 6],
+        "line-opacity": 0.8
+      },
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round"
+      }
+    },
+    {
+      "id": "water-fill",
+      "type": "fill",
+      "source": "water",
+      "source-layer": "water",
+      "filter": ["==", "$type", "Polygon"],
+      "paint": {
+        "fill-color": "rgb(148, 196, 212)"
+      }
+    },
+    {
+      "id": "buildings",
+      "type": "fill",
+      "source": "buildings",
+      "source-layer": "buildings",
+      "paint": { "fill-color": "rgb(231, 231, 231)", "fill-outline-color": "rgb(205, 205, 205)" }
+    },
+    {
+      "id": "infrastructure",
+      "type": "line",
+      "source": "infrastructure",
+      "source-layer": "infrastructure",
+      "filter": ["==", "$type", "LineString"],
+      "paint": {
+        "line-color": "#888888",
+        "line-width": ["interpolate", ["linear"], ["zoom"], 10, 0.5, 14, 1.5, 18, 3.0],
+        "line-dasharray": [2, 2],
+        "line-opacity": 0.8
+      },
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "visible"
+      }
+    },
+    {
+      "id": "roads",
+      "type": "line",
+      "source": "transportation",
+      "source-layer": "transportation",
+      "filter": [
+        "all",
+        ["==", ["get", "subtype"], "road"],
+        [
+          "any",
+          ["all", ["==", ["get", "class"], "motorway"], ["step", ["zoom"], false, 9, true]],
+          ["all", ["==", ["get", "class"], "trunk"], ["step", ["zoom"], false, 9, true]],
+          ["all", ["==", ["get", "class"], "primary"], ["step", ["zoom"], false, 9, true]],
+          ["all", ["==", ["get", "class"], "secondary"], ["step", ["zoom"], false, 9, true]],
+          ["all", ["==", ["get", "class"], "tertiary"], ["step", ["zoom"], false, 9, true]],
+          ["step", ["zoom"], false, 13, true]
+        ]
+      ],
+      "paint": {
+        "line-width": ["interpolate", ["exponential", 1.5], ["zoom"], 11, 0.8, 15, 3],
+        "line-color": "rgba(212,212,196,1)"
+      },
+      "layout": {
+        "line-cap": ["step", ["zoom"], "butt", 13, "round"],
+        "line-join": ["step", ["zoom"], "miter", 13, "round"],
+        "visibility": "visible"
+      }
+    },
+    {
+      "id": "railways",
+      "type": "line",
+      "source": "transportation",
+      "source-layer": "transportation",
+      "filter": ["==", ["get", "subtype"], "rail"],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round"
+      },
+      "paint": {
+        "line-opacity": 1.0,
+        "line-color": "rgb(84, 92, 100)",
+        "line-width": 1
+      }
+    },
+    {
+      "id": "places",
+      "type": "symbol",
+      "source": "places",
+      "source-layer": "places",
+      "filter": [">=", ["get", "confidence"], 0.95],
+      "minzoom": 12,
+      "layout": {
+        "text-field": ["get", "name"],
+        "text-size": ["interpolate", ["linear"], ["zoom"], 10, 10, 15, 12],
+        "text-offset": [0, 0.5],
+        "text-max-width": 20,
+        "text-anchor": "top",
+        "text-padding": 20,
+        "icon-image": "point",
+        "icon-size": ["interpolate", ["linear"], ["zoom"], 10, 0.2, 15, 0.3],
+        "icon-padding": 0
+      },
+      "paint": {
+        "text-color": "#000000"
+      }
+    }
+  ]
+}

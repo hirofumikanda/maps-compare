@@ -1,0 +1,21 @@
+{
+  "name": "maps-compare",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 5185 --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.4.1"
+  },
+  "dependencies": {
+    "mapbox-gl": "^3.8.0",
+    "mapbox-pmtiles": "^1.0.54",
+    "maplibre-gl": "^4.7.0",
+    "maplibre-gl-opacity": "^1.7.0",
+    "pmtiles": "^4.1.0"
+  }
+}

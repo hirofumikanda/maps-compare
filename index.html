@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:," />
+    <title>maps compare</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        height: 100vh;
+        position: relative;
+      }
+      #map1,
+      #map2 {
+        width: 50%;
+        height: 100%;
+      }
+      #map1 {
+        border-right: 2px solid black;
+      }
+      .label {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 5px 10px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 3px;
+        z-index: 1;
+      }
+    </style>
+    <script type="module" crossorigin src="/maps-compare/assets/index-6JY9JRqt.js"></script>
+    <link rel="stylesheet" crossorigin href="/maps-compare/assets/index-CbapjnHd.css">
+  </head>
+  <body>
+    <div id="map1"></div>
+    <div id="map2"></div>
+    <div id="style-selector" style="position: absolute; top: 50px; left: 10px; z-index: 1">
+      <select id="basemap-select">
+        <option value="styles/style_gsi_std.json">地理院地図</option>
+        <option value="styles/style_overture.json">overture Maps</option>
+        <option value="styles/style_osm.json">openstreetmap</option>
+      </select>
+    </div>
+  </body>
+</html>
